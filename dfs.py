@@ -13,20 +13,23 @@ class Graph:
     def printGraph(self): 
         print(dict(self.graph))
     # Function to print a BFS of graph 
-    def bfs(self,node):
-        visited = []
-        queue = []
-        visited.append(node)
-        queue.append(node)
+     # Set to keep track of visited nodes.
 
-        while queue:
-            s = queue.pop(0) 
+    def dfs(self,node):
+        visited = []
+        stack = []
+        visited.append(node)
+        stack.append(node)
+
+        while stack:
+            s = stack.pop() 
             print (s, end = " ") 
             
             for neighbour in self.graph[s]:
                 if neighbour not in visited:
                     visited.append(neighbour)
-                    queue.append(neighbour)
+                    stack.append(neighbour)
+  
   
   
 # Create a graph 
@@ -49,4 +52,4 @@ g.printGraph()
  
 start=input("Enter strating element for BFS")
 print ("Following is Breadth First Traversal")
-g.bfs(start)
+g.dfs(start)
